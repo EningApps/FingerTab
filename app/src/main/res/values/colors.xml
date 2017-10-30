@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="prozrach">#ccdfdcdc</color>
+    <color name="prozrach2">#ccf9e7e7</color>
+    <color name="prozrach3">#cce9d365</color>
+    <color name="schet">#bbe94e4b</color>
+    <color name="dontPressColor">#cb4eff37</color>
+    <color name="PressColor">#c9b750d4</color>
+    <color name="playgame">#d9a59da7</color>
+    <color name="blue">#f98ccefd</color>
+    <color name="white">#ffffff</color>
+    <color name="color3">#ffafaf</color>
+    <color name="color4">#fcffb3</color>
+    <color name="color5">#aeb2e7</color>
+    <color name="color0">#d7505050</color>
+    <color name="textColor">#fbfff6e5</color>
+    <color name="textColor2">#fbf9f2c7</color>
+    <color name="plusColor">#fbfc4f39</color>
+    <color name="minusColor">#fbffc4ee</color>
+
+
+
+
+</resources>
