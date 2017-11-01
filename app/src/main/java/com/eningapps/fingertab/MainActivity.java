@@ -16,18 +16,18 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-    int lastBackColor;
-    int triesLeft;
+    int lastBackColor;//added this to have different background color each time
+    int triesLeft; // if(triesLeft==0) finish game
 
-    TextView triesLeftTextView;
-    ConstraintLayout layoutMain;
+    TextView triesLeftTextView;// with every step this view is updated to show steps left for user
+    ConstraintLayout layoutMain; // add to change background color
     ImageButton leftButton, rightButton;
     Button backButton;
     Button startButton;
     TextView scoreTextView;
-    long timeLeft, timeRight;
+    long timeLeft, timeRight; // this for scoring difference in time 
     int leftScore=0, rightScore=0;
-    boolean leftPressed = false, rightPressed = false;
+    boolean leftPressed = false, rightPressed = false; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +42,22 @@ public class MainActivity extends AppCompatActivity {
         scoreTextView = (TextView) findViewById(R.id.scoretextView);
         triesLeftTextView = (TextView) findViewById(R.id.triesLeftTextView);
         triesLeftTextView.setText("Tries left : "+triesLeft);
-        leftButton.setEnabled(false);
+        leftButton.setEnabled(false); // user can press this buttons only after pressing startButton and when background color changes
         rightButton.setEnabled(false);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startButton.setText("Go again!");
-                startButton.setEnabled(false);
-                leftButton.setEnabled(false);
+                startButton.setEnabled(false);//to avoid multiple starting game
+                leftButton.setEnabled(false);// user can press this buttons only after pressing startButton and when background color changes
                 rightButton.setEnabled(false);
                 timeLeft=0;
                 timeRight=0;
-                layoutMain.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                ColorField colorField=new ColorField();
+                layoutMain.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white)); // to make difference between steps
+                ColorField colorField=new ColorField();//see this class below
                 colorField.execute();
-                Lock lock=new Lock();
+                Lock lock=new Lock();//see this class below
                 lock.execute();
             }
         });
@@ -87,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    
+    //This is a like an implementation of ThreadLock, it waits until both buttons are pressed 
+    //and than in onPostExecute calculates who wins using difference in time and shows AllertDialog with such information.
+    //If triesLeft-1==0 it ends game and lets user go back to ScreenActivity with backButton
     private class Lock extends AsyncTask<Void, Void, Integer>{
         @Override
         protected Integer doInBackground(Void... voids) {
@@ -146,7 +149,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
+    
+    
+    //This class made to change background color using random number
     private class ColorField extends AsyncTask<Void, Void, Integer>{
 
         @Override
