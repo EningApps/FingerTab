@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+//ScreenActivity shows user information about app and lets to change step limit in the game
+//Button button made to go to MainActivity.class (with sending it number of max steps)
+
 public class ScreenActivity extends AppCompatActivity {
 
     TextView maxStepsView;
